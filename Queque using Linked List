@@ -1,0 +1,51 @@
+class QueueUsingLinkedList:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    def is_empty(self):
+        return self.front is None
+
+    def enqueue(self, pet):
+        new_node = Node(pet)
+        if self.rear is None:
+            self.front = self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+
+    def dequeue(self):
+        if not self.is_empty():
+            dequeued_pet = self.front.data
+            self.front = self.front.next
+            if self.front is None:
+                self.rear = None
+            return dequeued_pet
+        else:
+            print("Queue is empty")
+
+    def front_pet(self):
+        if not self.is_empty():
+            return self.front.data
+        else:
+            print("Queue is empty")
+
+    def size(self):
+        current = self.front
+        count = 0
+        while current:
+            count += 1
+            current = current.next
+        return count
+
+queue_linked_list = QueueUsingLinkedList()
+pet1 = {"name": "Fluffy", "species": "Cat", "age": 3, "type": "Domestic"}
+pet2 = {"name": "Buddy", "species": "Dog", "age": 5, "type": "Labrador"}
+
+queue_linked_list.enqueue(pet1)
+queue_linked_list.enqueue(pet2)
+
+print("\nQueue using Linked List:")
+print("Front:", queue_linked_list.front_pet())
+print("Dequeue:", queue_linked_list.dequeue())
+print("Size:", queue_linked_list.size())
