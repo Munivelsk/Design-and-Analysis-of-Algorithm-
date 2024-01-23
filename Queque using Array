@@ -1,0 +1,37 @@
+class QueueUsingArray:
+    def __init__(self):
+        self.queue = []
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def enqueue(self, pet):
+        self.queue.append(pet)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)
+        else:
+            print("Queue is empty")
+
+    def front(self):
+        if not self.is_empty():
+            return self.queue[0]
+        else:
+            print("Queue is empty")
+
+    def size(self):
+        return len(self.queue)
+
+
+queue_array = QueueUsingArray()
+pet1 = {"name": "Fluffy", "species": "Cat", "age": 3, "type": "Domestic"}
+pet2 = {"name": "Buddy", "species": "Dog", "age": 5, "type": "Labrador"}
+
+queue_array.enqueue(pet1)
+queue_array.enqueue(pet2)
+
+print("\nQueue using Array:")
+print("Front:", queue_array.front())
+print("Dequeue:", queue_array.dequeue())
+print("Size:", queue_array.size())
