@@ -1,0 +1,50 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class StackUsingLinkedList:
+    def __init__(self):
+        self.top = None
+
+    def is_empty(self):
+        return self.top is None
+
+    def push(self, pet):
+        new_node = Node(pet)
+        new_node.next = self.top
+        self.top = new_node
+
+    def pop(self):
+        if not self.is_empty():
+            popped_pet = self.top.data
+            self.top = self.top.next
+            return popped_pet
+        else:
+            print("Stack is empty")
+
+    def peek(self):
+        if not self.is_empty():
+            return self.top.data
+        else:
+            print("Stack is empty")
+
+    def size(self):
+        current = self.top
+        count = 0
+        while current:
+            count += 1
+            current = current.next
+        return count
+
+stack_linked_list = StackUsingLinkedList()
+pet1 = {"name": "Fluffy", "species": "Cat", "age": 3, "type": "Domestic"}
+pet2 = {"name": "Buddy", "species": "Dog", "age": 5, "type": "Labrador"}
+
+stack_linked_list.push(pet1)
+stack_linked_list.push(pet2)
+
+print("\nStack using Linked List:")
+print("Peek:", stack_linked_list.peek())
+print("Pop:", stack_linked_list.pop())
+print("Size:", stack_linked_list.size())
