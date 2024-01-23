@@ -1,0 +1,36 @@
+class StackUsingArray:
+    def __init__(self):
+        self.stack = []
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def push(self, pet):
+        self.stack.append(pet)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+        else:
+            print("Stack is empty")
+
+    def peek(self):
+        if not self.is_empty():
+            return self.stack[-1]
+        else:
+            print("Stack is empty")
+
+    def size(self):
+        return len(self.stack)
+
+stack_array = StackUsingArray()
+pet1 = {"name": "Fluffy", "species": "Cat", "age": 3, "type": "Domestic"}
+pet2 = {"name": "Buddy", "species": "Dog", "age": 5, "type": "Labrador"}
+
+stack_array.push(pet1)
+stack_array.push(pet2)
+
+print("Stack using Array:")
+print("Peek:", stack_array.peek())
+print("Pop:", stack_array.pop())
+print("Size:", stack_array.size())
